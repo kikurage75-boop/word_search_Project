@@ -1,0 +1,19 @@
+{
+  "id": "/",
+  "name": "WordSearch PWA",
+  "short_name": "WordSearch",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "form_factor": "wide",
+  "icons": [
+    {
+      "src": "icon.png",   // ← 512x512の実ファイル名に合わせる
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

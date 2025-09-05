@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Japanese Wordsearch – Restart</title>
+<base href="./">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Japanese Wordsearch</h1>
+  <div class="controls">
+    <button id="btnLoadWords">語群読込</button>
+    <button id="btnLoadDict">辞書読込</button>
+    <button id="btnLoadAudio">音声読込</button>
+
+    <label class="badge">難易度
+      <select id="selDiff">
+        <option value="very-easy">very easy</option>
+        <option value="easy">easy</option>
+        <option value="normal" selected>normal</option>
+        <option value="hard">hard</option>
+        <option value="expert">expert</option>
+      </select>
+    </label>
+
+    <label class="badge">サイズ
+      W <input id="inpW" type="number" min="4" max="20" value="10" style="width:64px">
+      H <input id="inpH" type="number" min="4" max="20" value="10" style="width:64px">
+    </label>
+
+    <button id="btnGenerate">自動生成</button>
+    <button id="btnCheckAlt">別解チェック</button>
+
+    <label class="badge">空き補充
+      <select id="fillMode">
+        <option value="hira">ひらがな</option>
+        <option value="kata">カタカナ</option>
+        <option value="alpha">英字</option>
+        <option value="kanji">漢字</option>
+      </select>
+      <button id="btnFill">補充</button>
+    </label>
+
+    <label class="badge">解答 <input id="chkAnswers" type="checkbox" checked></label>
+
+    <!-- 追加：出力ボタン -->
+    <button id="btnDigital">デジタル出力</button>
+    <button id="btnPDF">PDF出力</button>
+    <button id="btnExport">素材出力</button>
+
+    <button id="btnConfirm" class="btn-primary">確定（商品用に保存）</button>
+<small id="unexportedBadge" style="margin-left:8px;opacity:.8;">未出力 0 件</small>
+
+  </div>
+</header>
+
+<main>
+  <div id="gridContainer">
+    <div class="meta" id="pageMeta">—</div>
+  </div>
+  <div id="wordList"></div>
+</main>
+
+<footer>
+  <div class="controls">
+    <button id="btnPrev">← 前ページ</button>
+    <span class="meta" id="pageLabel">1/1</span>
+    <button id="btnNext">次ページ →</button>
+    <span class="meta" id="subtitleMeta"></span>
+
+    <label class="badge">©
+      <input id="inpCopyright" type="text" value="2025 Kotogramico" style="width:220px">
+    </label>
+  </div>
+  <p class="meta">※ サイズ変更は即時反映。配置は「自動生成」を押してください。</p>
+</footer>
+
+<script src="js/jsio.audio.js"></script>
+<script src="js/generator-main.js?v=20250821b"></script>
+<script src="js/exporter.js?v=20250904b"></script>
+<script>
+  (function(){
+    if (window.Exporter && typeof window.Exporter.attach === 'function') {
+      window.Exporter.attach();
+    }
+  })();
+  </script>
+
+</body>
+</html>
